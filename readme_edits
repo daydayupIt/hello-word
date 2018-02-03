@@ -1,0 +1,18 @@
+上传到测试机更新命令
+运行到指定目录：cd /home/mftcc_factor/apache-tomcat-7.0.82
+备份当前的文件：zip -r webapps_$(date +%Y%m%d-%H%M).zip webapps
+传输webapps.zip 到 /home/mftcc_factor/apache-tomcat-7.0.82
+停止tomcat：ps -ef |grep tomcat|awk '{print $2}'|xargs kill -9
+解压： unzip -o webapps_1848.zip
+备份数据 ./yango_XiaoDai_MysqlBak.sh
+启动tomcat：bin/startup.sh
+重命名： mv webapps.zip webapps_版本编号.zip
+跟踪查看：tail -f  /home/mftcc_factor/apache-tomcat-7.0.82/logs/catalina.out
+netstat -anp|grep 9800
+
+date -s '2018-04-26 16:53' 设置时间
+clock -w 将日期写入CMOS
+timedatectl 查看服务器里的时间设置
+ntpdate time.nist.gov
+
+删除 ： rm -f aaa.ZIP 
